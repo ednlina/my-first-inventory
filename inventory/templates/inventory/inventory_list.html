@@ -1,22 +1,11 @@
-<html>
-    <head>
-        <title>Django Test stuff</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">root url for this site</a></h1>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Basically this is just bogus stuff.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>And more bogus things.</p>
-        </div>
-    </body>
-</html>
+{% extends 'inventory/base.html' %}
+{% block content %}
+                {% for item in items %}
+                  <div class="inv">
+                   <h1><a href="{% url 'inventory_detail' pk=item.pk %}">{{ item.title }}</a></h1>
+                   <p>keyword: {{ item.keyword }}</p>
+                   <p>filename: {{ item.filename }}</p>
+                   <p>{{ item.text|linebreaksbr }}</p>
+                  </div>
+               {% endfor %}
+{% endblock %}
