@@ -5,6 +5,8 @@
                    <h1><a href="{% url 'inventory_detail' pk=item.pk %}">{{ item.title }}</a></h1>
                    <p>keyword: {{ item.keyword }}</p>
                    <p>filename: {{ item.filename }}</p>
+                   <p>cost: {{ item.cost }}</p>
+                   <p>quantity: {{ item.quantity }}</p>
                    <p>{{ item.text|linebreaksbr }}</p>
                   </div>
                {% endfor %}
